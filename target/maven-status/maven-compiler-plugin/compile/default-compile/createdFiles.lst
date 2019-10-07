@@ -1,0 +1,4 @@
+s\CockpitPlugin.class
+s\resources\ProcessInstanceResource.class
+s\db\ProcessInstanceCountDto.class
+s\resources\CockpitPluginRootResource.class
