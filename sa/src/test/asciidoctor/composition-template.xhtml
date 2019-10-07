@@ -1,0 +1,173 @@
+<!DOCTYPE html [
+	<!ENTITY copy "&#169;">
+	<!ENTITY nbsp "&#160;">
+	<!ENTITY bull "&#8226;">
+	<!ENTITY euro "&#8364;">
+	]>
+
+	<html xmlns="http://www.w3.org/1999/xhtml">
+
+		<head>
+			<meta charset="utf-8" />
+			<!--
+			<ui:include src="/WEB-INF/resources/template/common/head.xhtml"/>
+			-->
+
+			<title>Szoo #{headtitle}</title>
+			<!--
+			<h:panelGroup rendered="#{not empty description}">
+			    <meta name="description" content="#{description}" />
+			</h:panelGroup>
+			<h:panelGroup rendered="#{not empty keywords}">
+			    <meta name="keywords" content="#{keywords}" />
+			</h:panelGroup>
+			-->
+
+			<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+			<link type="text/css" rel="stylesheet" href="resources/szoo/styles/FontAwesome-adoc.css"/>
+			<!--
+			<link type="text/css" rel="stylesheet" href="resources/szoo/styles/szoo-everything-xy.css"/>
+			-->
+			<link type="text/css" rel="stylesheet" href="resources/szoo/styles/szoo.css"/>
+
+			<!--
+			<h:outputStylesheet name="css/foundation.css" library="streichelzoo"
+					    rendered="#{fn:containsIgnoreCase(header['User-Agent'], 'Trident/')}" />
+			<h:outputStylesheet name="css/foundation-flex.css" library="streichelzoo"
+					    rendered="#{!fn:containsIgnoreCase(header['User-Agent'], 'Trident/')}" />
+			<h:outputStylesheet name="css/font-awesome.css" library="streichelzoo" />
+			<h:outputStylesheet name="css/site.css" library="streichelzoo" />
+			-->
+
+			<!--
+			<h:outputScript name="js/jquery.js" library="streichelzoo" target="body" />
+			<h:outputScript name="js/what-input.js" library="streichelzoo" target="body" />
+			<h:outputScript name="js/foundation.js" library="streichelzoo" target="body" />
+			-->
+			<!--
+			<h:outputScript name="js/foundation-combo.js" library="streichelzoo" target="body" />
+			<h:outputScript name="js/site.js" library="streichelzoo" target="body" />
+			<h:outputScript target="body">$(document).foundation();</h:outputScript>
+			-->
+
+			<!--
+			<h:outputScript name="js/foundation.orbit.js" library="streichelzoo" target="body" />
+			<h:outputScript target="body">$(document).foundation('orbit', 'reflow');</h:outputScript>
+			-->
+
+			<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+			<!--
+			<ui:include src="/WEB-INF/resources/template/common/favicon.xhtml"/>
+			-->
+
+
+		</head>
+
+
+
+		<body lang="en">
+			<!--
+			<ui:include src="/WEB-INF/resources/template/common/header.xhtml" />
+			-->
+
+			<header>
+
+				<!-- the first page after login, dispatch to user account and logout -->
+				<!--
+				<c:set var="userAccountURL" value="/user/" />
+				-->
+
+				<nav class="top-bar" id="main-menu">
+					<div class="top-bar-title">
+						<a href="/" rel="home">
+							<!--
+						    <h:graphicImage width="auto" height="40" name="img/katerkamp-logo-white-v3.1.h40p.min.svg"
+								    library="katerkamp" alt="katerkamp.de"/>
+							-->
+							<img class="top-bar-image" src="resources/szoo/images/catdog.svg" alt="katerkamp.de" height="40" width="auto"/>
+							Title Text
+						</a>
+					</div>
+					<div class="top-bar-left">
+						<a href="#">L-One</a>
+						<a href="#">L-Two</a>
+						<!--
+						    <ul class="dropdown menu" data-dropdown-menu="">
+							<li class="menu-text">Site Title</li>
+							<li>
+							    <a href="#">One</a>
+							    <ul class="menu vertical">
+								<li><a href="#">One</a></li>
+								<li><a href="#">Two</a></li>
+								<li><a href="#">Three</a></li>
+							    </ul>
+							</li>
+							<li><a href="#">Two</a></li>
+							<li><a href="#">Three</a></li>
+						    </ul>
+						-->
+					</div>
+					<div class="top-bar-right">
+						<a href="#" class="button">R-One</a>
+						<a href="#">R-Two</a>
+						<!--
+					    <ul class="menu vertical medium-horizontal" data-responsive-menu="drilldown medium-dropdown">
+					    <ui:include src="/WEB-INF/resources/template/common/navigation.xhtml"/>
+						<li>
+						<h:outputLink value="#{userAccountURL}" rendered="#{not user.loggedIn}">
+						    <span class="fa fa-user-plus fa-lg"> </span><span> #{msg.login_plusyou}</span>
+						</h:outputLink>
+						<h:outputLink value="#{userAccountURL}" rendered="#{user.loggedIn}">
+						    <span class="fa fa-user fa-lg"> </span><span> #{user.userName}</span>
+						</h:outputLink>
+						</li>
+					    </ul>
+						-->
+					</div>
+				</nav>
+
+				<div class="callout large primary">
+					<div class="row column text-center">
+						<h1>A Callout</h1>
+						<h2 class="subheader">Callout Subheader</h2>
+					</div>
+				</div>
+
+			</header>
+
+			<!-- content goes inside article element -->
+			<main>
+				<aside>Aside Text..</aside>
+				<article/>
+			</main>
+			<!--
+			<ui:include src="/WEB-INF/resources/template/common/footer.xhtml"/>
+			-->
+			<footer>
+				<div class="footer-left"> <!--cell small-6 align-left" -->
+					<!--
+				    <ui:fragment rendered="#{language.isActive('de') &amp;&amp; not empty de_revdate}">
+					#{de_revdate} |
+				    </ui:fragment>
+				    <ui:fragment rendered="#{language.isActive('en') &amp;&amp; not empty en_revdate}">
+					#{en_revdate} |
+				    </ui:fragment>
+					-->
+					<!--
+					<span class="fa fa-commenting-o fa-lg"></span>
+					-->
+					Footer Left
+					<!--
+					<c:forEach items="#{language.getOtherLanguages()}" var="othlang">
+					    <span><h:commandLink style="color: #fff;" value="#{othlang.key}" action="#{language.switchLocale(othlang.value)}" /> </span>
+					</c:forEach>
+					-->
+				</div>
+				<div class="footer-right"> <!--cell small-6 text-right"-->
+					Hello, this is <a class="footer-bottom-link" href="#">Footer Right</a>
+				</div>
+			</footer>
+
+		</body>
+	</html>

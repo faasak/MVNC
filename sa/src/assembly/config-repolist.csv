@@ -1,0 +1,11 @@
+# List of local git repositories
+# See also target/maven-shared-archive-resources/src/assembly/config-repolist.csv
+# for resources loaded by default
+
+# URL tag [gitoption]
+
+# Example:
+# https://github.com/google/woff2 master --recursive
+ 
+# not needed, but here for reference
+https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git	master

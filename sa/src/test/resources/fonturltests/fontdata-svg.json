@@ -1,0 +1,19 @@
+{
+    "type": "stylesheet",
+    "level": "simple",
+    "value": [
+        {
+            "type": "@font-face",
+            "value": {
+                "font-family": "'Open Sans'",
+                "font-style": "normal",
+                "font-weight": 700,
+                "src": [
+                    "local('Open Sans Bold')",
+                    "local('OpenSans-Bold')",
+                    "url(http://fonts.gstatic.com/l/font?kit=k3k702ZOKiLJc3WVjuplzFlIn5tFQcqMuf-jhyJP0ps&skey=cd9e1a36bb25a3c3&v=v15#OpenSans) format('svg')"
+                ]
+            }
+        }
+    ]
+}

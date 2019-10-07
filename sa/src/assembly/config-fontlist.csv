@@ -1,0 +1,49 @@
+# Google Fonts
+#
+# Comma separated values on line
+#
+# The optional name is a no spaces string which gets used to overwrite the
+# default name provided by the Google response css for a particular font.
+#
+# For weight use 3 digit number, not the string.
+# weight: 100, 200, 300==light, 400==normal, 500, 600==semibold, 700==bold, 800==extrabold, 900
+#
+# style: normal, italic
+#
+# Monospaced fonts usually have "Mono" in their names.
+#
+# To select fonts, open https://fonts.google.com in a browser, then select a font.
+# The center drop down menu (located in the row of drop down menus on top 
+# of each font display box) tells which weights are available, and optionally
+# tell if other styles are also available.
+#
+# unicoderange: space separated list of tokens. If one token is contained in
+# the woff2 unicode-range list, only that font will be available in css. This 
+# keeps css small.
+
+
+# family,		weight,	style, name, 	unicoderange
+
+Open Sans,		700, 	normal,		,U+0000 U+0100
+Open Sans,		700,	italic,		,U+0000 U+0100
+#Open Sans,		800,	normal,		,U+0000 U+0100
+#Open Sans,		800,	italic,		,U+0000 U+0100
+Open Sans,		400,	italic,		,U+0000 U+0100
+Open Sans,		300,	normal,		,U+0000 U+0100
+Open Sans,		300,	italic,	OpenSans-LightItalic,U+0000 U+0100
+Open Sans,		400,	normal,		,U+0000 U+0100
+#Open Sans,		600,	normal,		,U+0000 U+0100
+#Open Sans,		600,	italic,		,U+0000 U+0100
+#UnifrakturCook,		700,	normal,		,U+0000 U+0100
+#UnifrakturMaguntia,	400,	normal,		,U+0000 U+0100
+#Salsa,			400,	normal,		,U+0000 U+0100
+#Lobster,		400,	normal,		,U+0000 U+0100
+#Courgette,		400,	normal,		,U+0000 U+0100
+#Permanent Marker,	400,	normal,		,U+0000 U+0100
+#Playball,		400,	normal,		,U+0000 U+0100
+#Droid Sans Mono,	400,	normal,		,U+0000 U+0100
+#Noto Serif,		400,	normal,		,U+0000 U+0100
+#Noto Serif,		700,	normal,		,U+0000 U+0100
+#Noto Serif,		400,	italic,		,U+0000 U+0100
+#Noto Serif,		700,	italic,		,U+0000 U+0100
+#Noto Serif,		700,	italic,		,U+0000 U+0100

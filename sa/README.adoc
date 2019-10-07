@@ -1,0 +1,157 @@
+= Stylesheet Factory
+
+== External Resources
+
+Besides normal Maven resources the project collects build resources 
+from various other remote locations. This is needed just once for the
+initial install. These resources are stored locally in the _src_ folder
+and persist:
+
+* Github -> `./src/github_repos`
+* NPM -> `./src/node_modules`
+* Google Fonts -> `./src/google_fonts`
+
+Profile _clone_ activates download during install. 
+Resources can be customized, see _./src/assembly/config*_.
+To clean up everything not needed to build the project, 
+run `mvn -P clobber clean`.
+
+== Scripts
+
+All scripts get executed in oder by _mvn install_ .
+Maven pom executes bash scripts, bash scripts execute gulp tasks.
+
+Bash scripts can be run manually or by Maven as part of a build phase.
+It needs to be run from the project base dir and needs environment
+variable BASEDIR set, like _BASEDIR=. bash -c ./src/bash/foo.sh_.
+Gulp and npm can be run manually if current working dir is ./src.
+
+== Sources, Resources and Targets
+
+SASS/.scss will be collected in _target/generated-sources_ and then compiled.
+The final target is a jar file with a directory tree as in _target/classes_.
+CSS and JS files go directly into this tree and it will use JSF EL-resource
+notation. Minification task will walk through it separately, after all is compiled. 
+
+For style development with the http-server all styles and javascripts will be taken from
+_target/classes_ and EL-resources get converted into paths, as this simple server
+can not handle EL resources.
+
+== Directories
+
+This maven package assembles a JSF resource (not a webapp). Therefore JSF resources are
+inside src/main/resources/META-INF/resources and there is a META-INF/web-fragment.xml.
+//(In a webapp JSF data would be in src/main/webapp and there would be a WEB-INF/web.xml).
+
+_src/bash_, _src/gulp_, _src/assembly_:: Scripts for building the jar.
+
+_src/test_:: Tests.
+
+_src/main_:: Sources and resources which will end up as content of the jar.
+
+_src/main/resources_:: Contains subtree _META-INF/resources/szoo/_. This is
+registered as a resource dir in _pom.xml_ and will be
+copied by Maven to _target/classes_ and then be packaged into the _styles-....jar_ file.
+This directory also contains _META-INF/web-fagment.xml_ for the jar. 
+
+_src/main/scss_:: Scss files which will be compiled into css and then end up in
+_target/classes/META-INF/resources/szoo/styles/css_. This will be
+
+_src/google_fonts_:: Configuration file: _src/assembly/config-fontlist.csv_.  
+Registered as a resource in _pom.xml_. Contains subtree _META_INF/resources/szoo/_,
+which got constructed by _src/bash/clone-fonts.sh_ installation script. 
+Invoked from Maven by _src/bash/pullall.sh_.
+Maven treats this dir like _src/main/resources_, see above.
+
+_src/github_repos/_::  Configuration file: _src/assembly/config-repolist.csv_.  
+Created by _src/bash/clone-repos.sh_, invoked from Maven by _src/bash/pullall.sh_.
+
+_src/node_modules_::  Configuration file: _src/package.json_.  
+Created by npm install, invoked by _src/bash/pullall.sh_. Contains needed node modules. 
+
+_src/github_repos/woff2/woff2_compress_:: Google Woff2 compress binary. Using this as I
+could not find a Debian or npm package yet. Will be compiled once during initial install
+and then used by the scripts.
+
+_src/node_modules/font-awesome_:: Font-awesome sources. Gulp compiles these
+and installs them in _target/classes_. Gulp also invokes _src/bash/fa-subset-font.sh_,
+which generates the fa subset woff/woff2 files and css for use with asciidoctor css.
+Subset is made of all fa-var occurences in _src/main/scss/components/_awesome-icons.scss_.
+
+_target/test/http-server_:: Test html and css files. Copied from _src/test/resources_
+and copied/converted from _target/classes/META-INF/resources_. Converted as resources in META-INF
+use EL resource notation.
+
+== Maven Install
+
+Initial install (profile _clone_) downloads all required sources. Next is:
+
+1. Phase process-resources. Resources plugin. Copies build resources resource
+_src/main/resources_ and resource _src/google_fonts_ (fonts and css) into target/classes.
+
+2. Phase compile. Exec plugin. Runs _compile-fa_ and _installtasks_.
+
+2.1. Compile-fa further populates target/classes. It copies all FA fonts.
+It then extracts fa variables from asciidoctor styles and creates a woff and woff2
+font subset. It creates scss for these FA font files and then invokes gulp scss:fa
+to compile them. 
+
+2.1. Installtasks runs gulp install.
+
+2.x. Todo: to generate minified css and js from target/classes into target/classes
+
+3. Resources plugin then running for testResources (makes no sense, need to do this per script which
+converts and copies.
+
+4. Exec plugin runs _installtests_.
+
+5. Jar plugin assembles jar from contents in target/classes.
+
+
+== Style Development
+
+Start Gulp http-server and source code watcher:
+
+ cd src; gulp
+
+Open http://localhost:3000[] in browser. Edit sources in _src/main/scss/_, _src/test/_. 
+Gulp watcher will recompile and reload browser on save.
+
+Data flow: 
+
+All adoc test samples reside in src/test/asciidoctor.  If anything changes,
+adoc gets compiled into standard xhtml5 and placed in target/http-server. 
+Then the xhtml5 and src/test/resources/composition-template.xhtml get
+merged into a comp.xhtml5.  Then browser-reload.
+
+If anything changes in src/main/resources, a manual mvn clean install is needed.
+Same for FA or Google Fonts.
+
+If anything changes in src/main/scss, this gets compiled into target/classes/META-INF/resources/szoo/styles.
+Then it gets transferred into /target/http-server/ from there, EL resources get changed to paths. This is
+needed as browserSync does not apply rewriteRules to css.
+Then browser-reload.
+
+No watcher neeed for Google Fonts and FA.
+
+See also: pyftinspect.
+
+
+== Caveats
+
+
+XHTML5 output of xsltproc contains self closing elements, like
+
+----
+<a id="another_term"/>another term
+----
+
+But test server sends it as text/html, so no xml parsing mode is enabled
+in browser.  All following text gets rendered in color for links.
+Rewriting this to an empty element works:
+
+----
+<a id="another_term"></a>another term
+----
+
+This is acheived by xsl:output method="html".

@@ -1,0 +1,137 @@
+{
+    "type": "stylesheet",
+    "level": "simple",
+    "value": [
+        {
+            "type": "@font-face",
+            "value": {
+                "font-family": "'Open Sans'",
+                "font-style": "normal",
+                "font-weight": 700,
+                "src": [
+                    "local('Open Sans Bold')",
+                    "local('OpenSans-Bold')",
+                    "url(http://fonts.gstatic.com/s/opensans/v15/123.woff2) format('woff2')"
+                ],
+                "unicode-range": [
+                    "U 460 -52F",
+                    "U 20B 4",
+                    "U 2DE 0 -2DFF",
+                    "U + A640-A69F"
+                ]
+            }
+        },
+        {
+            "type": "@font-face",
+            "value": {
+                "font-family": "'Open Sans'",
+                "font-style": "normal",
+                "font-weight": 700,
+                "src": [
+                    "local('Open Sans Bold')",
+                    "local('OpenSans-Bold')",
+                    "url(http://fonts.gstatic.com/s/opensans/v15/123.woff2) format('woff2')"
+                ],
+                "unicode-range": [
+                    "U 400 -45F",
+                    "U 490 -491",
+                    "U 4B 0 -4B 1",
+                    "U 2116"
+                ]
+            }
+        },
+        {
+            "type": "@font-face",
+            "value": {
+                "font-family": "'Open Sans'",
+                "font-style": "normal",
+                "font-weight": 700,
+                "src": [
+                    "local('Open Sans Bold')",
+                    "local('OpenSans-Bold')",
+                    "url(http://fonts.gstatic.com/s/opensans/v15/123.woff2) format('woff2')"
+                ],
+                "unicode-range": "U 1F 0 -1FFF"
+            }
+        },
+        {
+            "type": "@font-face",
+            "value": {
+                "font-family": "'Open Sans'",
+                "font-style": "normal",
+                "font-weight": 700,
+                "src": [
+                    "local('Open Sans Bold')",
+                    "local('OpenSans-Bold')",
+                    "url(http://fonts.gstatic.com/s/opensans/v15/123.woff2) format('woff2')"
+                ],
+                "unicode-range": "U 370 -3FF"
+            }
+        },
+        {
+            "type": "@font-face",
+            "value": {
+                "font-family": "'Open Sans'",
+                "font-style": "normal",
+                "font-weight": 700,
+                "src": [
+                    "local('Open Sans Bold')",
+                    "local('OpenSans-Bold')",
+                    "url(http://fonts.gstatic.com/s/opensans/v15/123.woff2) format('woff2')"
+                ],
+                "unicode-range": [
+                    "U 102 -103",
+                    "U 1EA 0 -1EF 9",
+                    "U 20AB"
+                ]
+            }
+        },
+        {
+            "type": "@font-face",
+            "value": {
+                "font-family": "'Open Sans'",
+                "font-style": "normal",
+                "font-weight": 700,
+                "src": [
+                    "local('Open Sans Bold')",
+                    "local('OpenSans-Bold')",
+                    "url(http://fonts.gstatic.com/s/opensans/v15/123.woff2) format('woff2')"
+                ],
+                "unicode-range": [
+                    "U 100 -24F",
+                    "U 1E 0 -1EFF",
+                    "U 20A 0 -20AB",
+                    "U 20AD -20CF",
+                    "U 2C 60 -2C 7F",
+                    "U + A720-A7FF"
+                ]
+            }
+        },
+        {
+            "type": "@font-face",
+            "value": {
+                "font-family": "'Open Sans'",
+                "font-style": "normal",
+                "font-weight": 700,
+                "src": [
+                    "local('Open Sans Bold')",
+                    "local('OpenSans-Bold')",
+                    "url(http://fonts.gstatic.com/s/opensans/v15/123.woff2) format('woff2')"
+                ],
+                "unicode-range": [
+                    "U 0 0FF",
+                    "U 131",
+                    "U 152 -153",
+                    "U 2C 6",
+                    "U 2DA",
+                    "U 2DC",
+                    "U 2000 -206F",
+                    "U 2074",
+                    "U 20AC",
+                    "U 2212",
+                    "U 2215"
+                ]
+            }
+        }
+    ]
+}
