@@ -1,0 +1,11 @@
+# List of git repositories
+# URL tag [gitoption]
+
+# using git instead of npm as its good to be able to make custom mods
+https://github.com/zurb/foundation-sites.git 				v6.4.3
+
+# not needed, but here for reference
+#https://github.com/asciidoctor/asciidoctor-stylesheet-factory.git	master
+
+# woff2 compressor
+https://github.com/google/woff2 master --recursive

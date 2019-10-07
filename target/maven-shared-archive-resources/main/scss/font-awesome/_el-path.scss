@@ -1,0 +1,20 @@
+/* FONT PATH
+ * -------------------------- */
+
+// JSF #{resource} EL
+
+$fa-version: '4.7.0';
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("\#{resource['szoo:fonts/FontAwesome/FontAwesome.eot']}?v=#{$fa-version}");
+  src: url("\#{resource['szoo:fonts/FontAwesome/FontAwesome.eot']}?#iefix&v=#{$fa-version}") format('embedded-opentype'),
+    url("\#{resource['szoo:fonts/FontAwesome/FontAwesome.woff2']}?v=#{$fa-version}") format('woff2'),
+    url("\#{resource['szoo:fonts/FontAwesome/FontAwesome.woff']}?v=#{$fa-version}") format('woff'),
+    url("\#{resource['szoo:fonts/FontAwesome/FontAwesome.ttf']}?v=#{$fa-version}") format('truetype'),
+
+    // url('#{$fa-font-path}/FontAwesome/FontAwesome.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+    url("\#{resource['szoo:fonts/FontAwesome/FontAwesome.svg']}?v=#{$fa-version}#fontawesomeregular") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

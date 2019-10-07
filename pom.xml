@@ -19,7 +19,26 @@
 		<styletools.local.dir>${basedir}/src</styletools.local.dir>
 		<styletools.shared.dir>${basedir}/target/maven-shared-archive-resources</styletools.shared.dir>
 	</properties>
-	<build>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>1.6.0</version>
+                    <configuration>
+                        <classpathScope>test</classpathScope>
+                        <mainClass>Main</mainClass>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>run-selenium</id>
+                            <phase>integration-test</phase>
+                            <goals><goal>java</goal></goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>

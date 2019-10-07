@@ -1,0 +1,42 @@
+
+// locally used colors adapted to f6
+$header-font-color: $body-font-color;
+// in _default already:
+$rainbow-lightness: -25% !default;
+$rainbow-bg-lightness: -2% !default;
+
+
+.literalblock .content {
+	@include callout;
+	@include callout-style($body-background);
+}
+
+.listingblock .content {
+	@include callout;
+	@include callout-style($code-background);
+	background-color: $code-background;
+}
+
+.listingblock .content code {
+	border: none;
+	background-color: $code-background;
+}
+
+.admonitionblock > table {
+	border-collapse: separate;
+	border: 0;
+	background: none;
+	width: 100%;
+	td.icon {
+		text-align: center;
+		width: 2rem;
+		img {
+			max-width: initial;
+		}
+		.title {
+			font-weight: bold;
+			font-family: $header-font-family;
+			text-transform: uppercase;
+		}
+	}
+}
